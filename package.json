@@ -1,0 +1,22 @@
+{
+  "name": "connection-reporter",
+  "version": "0.0.1",
+  "description": "Scripts that will help you fight your ISP's nonsense",
+  "main": "index.js",
+  "repository": "https://github.com/EnslavedEagle/timeout-reporter",
+  "author": "Patryk Bernasiewicz <kontakt@patrykb.pl>",
+  "license": "MIT",
+  "scripts": {
+    "server": "node server/index",
+    "server-dev": "nodemon server/index --watch server",
+    "client": "node client/index",
+    "client-dev": "nodemon client/index --watch client"
+  },
+  "dependencies": {
+    "moment": "^2.23.0",
+    "ws": "^6.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
