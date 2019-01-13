@@ -27,6 +27,7 @@ class Reporter {
     this.stream.on('open', () => {
       console.log('File Stream opened.');
     });
+    
     this.stream.on('close', () => {
       console.log('File Stream closed.');
     })

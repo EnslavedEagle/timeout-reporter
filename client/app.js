@@ -1,26 +1,15 @@
-const WebSocket = require('ws');
+const Connecter = require('./connecter');
 const Pinger = require('./pinger');
 const Reporter = require('./reporter');
-const moment = require('moment');
-const fs = require('fs');
-const path = require('path');
-
-const connection = new WebSocket('ws://localhost:8080');
 
 (async function() {
+  const connecter = new Connecter(Reporter, Pinger);
   
-  connection.on('open', async () => {
-    const reporter = new Reporter();
-    const pinger = new Pinger(connection);
-
-    pinger.on('ping', (e) => {
-      console.log('ping happened!');
-    })
-
-    pinger.on('error', (e) => {
-      console.log('connection error!');
-    });
-
-    pinger.start();
+  connecter.on('giveUp', () => {
+    console.log('Looks like you are not connected to the Internet at all.');
   });
+  connecter.on('error', () => {
+    setTimeout(() => connecter.initialize(), 1000);
+  });
+  connecter.initialize();
 })();
