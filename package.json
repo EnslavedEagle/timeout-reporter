@@ -7,13 +7,14 @@
   "author": "Patryk Bernasiewicz <kontakt@patrykb.pl>",
   "license": "MIT",
   "scripts": {
-    "server": "node server/index",
-    "server-dev": "nodemon server/index --watch server",
+    "server": "node server/app",
+    "server-dev": "nodemon server/app --watch server",
     "client": "node client/index",
-    "client-dev": "nodemon client/index --watch client"
+    "client-dev": "nodemon client/app --watch client"
   },
   "dependencies": {
     "moment": "^2.23.0",
+    "reconnecting-websocket": "^4.1.10",
     "ws": "^6.1.2"
   },
   "devDependencies": {
